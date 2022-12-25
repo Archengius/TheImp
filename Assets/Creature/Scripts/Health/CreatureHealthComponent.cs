@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Creature.Scripts.Attributes;
+using Creature.Scripts.Movement;
 using UnityEngine;
 
 namespace Creature.Scripts.Health
@@ -12,9 +13,11 @@ namespace Creature.Scripts.Health
         public static readonly CreatureAttribute MaxHealthAttribute = new("health.max_health", 6.0f);
         
         private CreatureAttributeManager _attributeManager;
+        private CreatureMovementComponent _movementComponent;
         private CreatureAttributeInstance _maxHealthInstance;
 
         [SerializeField] private int baseMaxHealth = 6;
+        [SerializeField] private float baseKnockBackStrength = 0.0f;
 
         private int _currentHealth;
         private bool _hasRanOutOfHealth;
@@ -28,6 +31,7 @@ namespace Creature.Scripts.Health
         protected virtual void Start()
         {
             _attributeManager = GetComponent<CreatureAttributeManager>();
+            _movementComponent = GetComponent<CreatureMovementComponent>();
             if (_attributeManager == null)
             {
                 Debug.LogErrorFormat(this, "Failed to find CreatureAttributeManager on GameObject");
@@ -83,6 +87,15 @@ namespace Creature.Scripts.Health
             return true;
         }
 
+        protected virtual void ApplyKnockBack(GameObject damageSource)
+        {
+            if (damageSource && damageSource.transform && _movementComponent && baseKnockBackStrength != 0.0f)
+            {
+                Vector3 knockBackDir = (transform.position - damageSource.transform.position).normalized;
+                _movementComponent.AddImpulse(knockBackDir * baseKnockBackStrength);
+            }
+        }
+
         public override bool AttackFrom(DamageSource source, int damageAmount)
         {
             if (!CanTakeDamage(source))
@@ -97,6 +110,11 @@ namespace Creature.Scripts.Health
                 return false;
             }
             SetHealth(Health - resultDamage);
+            if (source.Source && source.Source.transform)
+            {
+                ApplyKnockBack(source.Source);
+            } 
+            
             OnDamageTaken(source, resultDamage);
             return true;
         }

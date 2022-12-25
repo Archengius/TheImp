@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 5076429803943176426}
   - component: {fileID: 3209392260557656771}
   - component: {fileID: 8520123658805660409}
+  - component: {fileID: 8824826736166646839}
+  - component: {fileID: 9123532876171857479}
   m_Layer: 0
   m_Name: CharPrefab
   m_TagString: Untagged
@@ -54,8 +56,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -85,10 +87,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1d3923e8d546bb949fc0edf91abf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 100
-  baseGravityScale: 1
+  baseMovementSpeed: 15
+  baseGravity: -50
   baseJumpCount: 1
-  baseJumpVelocity: 100
+  baseJumpVelocity: 40
+  groundContactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 45
+    maxNormalAngle: 135
+  baseAccelerationSpeed: 40
+  baseSlowdownSpeed: 400
+  exponentialSlowdownSpeed: 0
+  verticalAccelerationSpeed: 200
+  airborneMovementSpeedMultiplier: 0.5
+  jumpCooldown: 0.25
+  horizVelocityAnimParam: horizontalVelocity
+  verticalVelocityAnimParam: verticalVelocity
+  turnDirectionAnimParam: turnDirection
+  onGroundAnimParam: grounded
+  jumpAnimTrigger: creatureJump
 --- !u!114 &8810116658958718079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMaxHealth: 6
+  baseKnockBackStrength: 0
   invulnerabilityTimeOnHit: 1
   retrySceneOpenDelay: 0.5
   retrySceneName: 
@@ -240,3 +268,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &8824826736166646839
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470695826317926587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00318757b7ca6544fab64b7b63ebd1fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9123532876171857479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470695826317926587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ea84f35bff4f9bb2a2c6f459f5031b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimatorController: {fileID: 9100000, guid: 00318757b7ca6544fab64b7b63ebd1fb, type: 2}

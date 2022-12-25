@@ -4,13 +4,11 @@
     {
         public readonly string Name;
         public readonly float BaseValue;
-        public readonly float MaximumValue;
 
-        public CreatureAttribute(string name, float baseValue, float maximumValue = 1000.0f)
+        public CreatureAttribute(string name, float baseValue)
         {
             Name = name;
             BaseValue = baseValue;
-            MaximumValue = maximumValue;
         }
 
         private bool Equals(CreatureAttribute other)

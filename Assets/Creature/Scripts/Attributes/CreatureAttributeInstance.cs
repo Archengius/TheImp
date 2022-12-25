@@ -76,15 +76,6 @@ namespace Creature.Scripts.Attributes
             var resultValue = hasOverwrittenFinalValue
                 ? overwrittenFinalValue
                 : finalValueMultiplier * (baseValueMultiplier * BaseValue + modifierAddedValue);
-            
-            if (resultValue <= 0.0f)
-            {
-                resultValue = 0.0f;
-            }
-            if (resultValue >= Attribute.MaximumValue)
-            {
-                resultValue = Attribute.MaximumValue;
-            }
             SetCurrentValue(resultValue);
         }
 

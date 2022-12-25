@@ -47,12 +47,7 @@ namespace Character.Scripts.Ability
         public virtual void OnAbilityTick(float dt)
         {
         }
-
-        /** Called every physics tick the ability is active */
-        public virtual void OnAbilityPhysicsTick()
-        {
-        }
-
+        
         /** Called once the ability has been terminated through CharacterAbilityManager::StopActiveAbility */
         public virtual void OnAbilityStopped()
         {

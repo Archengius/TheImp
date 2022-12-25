@@ -1,6 +1,4 @@
 ﻿using Character.Scripts.Health;
-using Character.Scripts.Input;
-using Creature.Scripts.Attributes;
 using UnityEngine;
 
 namespace Character.Scripts.Ability

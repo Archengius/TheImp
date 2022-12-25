@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace Creature.Scripts.Animation
+{
+    [RequireComponent(typeof(Animator))]
+    public class CreatureAnimationManager : MonoBehaviour
+    {
+        [SerializeField] private RuntimeAnimatorController defaultAnimatorController;
+
+        private Animator _animator;
+        private readonly List<IAnimationControllerCallback> _callbacks = new();
+
+        protected virtual void Start()
+        {
+            _animator = GetComponent<Animator>();
+            //Find callbacks among components and register them
+            foreach (var animationComponentCallback in GetComponents<IAnimationControllerCallback>())
+            {
+                RegisterCallback(animationComponentCallback);
+            }
+        }
+
+        public void RegisterCallback(IAnimationControllerCallback callback)
+        {
+            _callbacks.Add(callback);
+        }
+
+        public void UnregisterCallback(IAnimationControllerCallback callback)
+        {
+            _callbacks.Remove(callback);
+        }
+
+        protected virtual RuntimeAnimatorController PickActiveAnimationController()
+        {
+            var controller = _callbacks.Select(x => x.GetAnimationControllerOverride())
+                .OrderByDescending(x => x.Priority)
+                .Select(x => x.Controller)
+                .FirstOrDefault();
+            
+            if (controller == null)
+            {
+                controller = defaultAnimatorController;
+            }
+            return controller;
+        }
+
+        protected virtual void UpdateAnimatorParams()
+        {
+            _callbacks.ForEach(x => x.UpdateAnimatorParameters(_animator));
+        }
+
+        protected virtual void OnAnimationControllerChanged()
+        {
+            var newController = _animator.runtimeAnimatorController;
+            _callbacks.ForEach(x => x.OnAnimationControllerChanged(newController));
+        }
+
+        protected virtual void Update()
+        {
+            if (!_animator) return;
+            RuntimeAnimatorController activeController = PickActiveAnimationController();
+            if (_animator.runtimeAnimatorController != activeController)
+            {
+                _animator.runtimeAnimatorController = activeController;
+                OnAnimationControllerChanged();
+            }
+            UpdateAnimatorParams();
+        }
+    }
+}

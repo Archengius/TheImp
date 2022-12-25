@@ -2,33 +2,29 @@
 using Character.Scripts.Input;
 using Creature.Scripts.Attributes;
 using Creature.Scripts.Health;
+using Creature.Scripts.Movement;
 using UnityEngine;
 
 namespace Character.Scripts.Ability
 {
     [RequireComponent(typeof(CharacterInputManager))]
-    public class CharacterAbilityDash : TimedCharacterAbility, IHealthComponentCallback
+    public class CharacterAbilityDash : TimedCharacterAbility, IHealthComponentCallback, ICreatureMovementCallback
     {
-        private static readonly CreatureAttributeModifier GravityScaleModifier = new(
+        private static readonly CreatureAttributeModifier GravityModifier = new(
             Guid.Parse("7691fa98-24fa-4893-be66-a9add71ac05f"), 
-            "Dash Gravity Multiplier",  
+            "Dash Gravity Override",  
             (int) AttributeModifierPriority.ActiveAbility,
             AttributeModifierOperation.MultiplyTotal, 0.0f);
         
-        [SerializeField] protected float dashVelocityX = 500.0f;
+        [SerializeField] protected float dashVelocity = 500.0f;
 
         private CharacterInputManager _inputManager;
         private float initialVelocityX = 0.0f;
-        
-        
+
         protected override void Start()
         {
             base.Start();
             _inputManager = GetComponent<CharacterInputManager>();
-            if (HealthComponent != null)
-            {
-                HealthComponent.RegisterCallback(this);
-            }
         }
 
         public override void OnAbilityActivated()
@@ -44,17 +40,16 @@ namespace Character.Scripts.Ability
                 initialVelocityX = MovementComponent.Velocity.x;
                 MovementComponent.SetVelocity(new Vector2(initialVelocityX, 0.0f));
                 MovementComponent.SetInputAcceleration(Vector2.zero);
-                MovementComponent.GravityScaleInstance.AddModifier(GravityScaleModifier);
+                MovementComponent.GravityInstance.AddModifier(GravityModifier);
             }
         }
-        
-        public override void OnAbilityPhysicsTick()
+
+        public void OnPhysicsTick(PhysicsTickContext context)
         {
-            base.OnAbilityPhysicsTick();
-            
-            if (IsAbilityEnter)
+            if (IsAbilityActive)
             {
-              
+                Vector2 dashVelocityVector = new Vector2(Mathf.Sign(initialVelocityX) * dashVelocity, 0.0f);
+                context.AddDesiredVelocity(dashVelocityVector);
             }
         }
 
@@ -71,7 +66,8 @@ namespace Character.Scripts.Ability
                 var exitCharacterVelocity = Mathf.Sign(initialVelocityX) * MovementComponent.MovementSpeedInstance.Value;
                 
                 MovementComponent.SetVelocity(new Vector2(exitCharacterVelocity, 0.0f));
-                MovementComponent.GravityScaleInstance.RemoveModifier(GravityScaleModifier);
+                MovementComponent.SetInputAcceleration(new Vector2(Mathf.Sign(initialVelocityX), 0.0f));
+                MovementComponent.GravityInstance.RemoveModifier(GravityModifier);
             }
         }
 

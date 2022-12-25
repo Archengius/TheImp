@@ -26,15 +26,7 @@ namespace Character.Scripts.Ability
                 _activeAbility.OnAbilityTick(Time.deltaTime);
             }
         }
-
-        private void FixedUpdate()
-        {
-            if (!ReferenceEquals(_activeAbility, null))
-            {
-                _activeAbility.OnAbilityPhysicsTick();
-            }
-        }
-
+        
         public CharacterAbility GetActiveAbility()
         {
             return _activeAbility;
