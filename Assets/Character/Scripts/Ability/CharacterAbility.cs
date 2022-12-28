@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creature.Scripts.Animation;
+using UnityEngine;
 
 namespace Character.Scripts.Ability
 {
@@ -27,6 +28,10 @@ namespace Character.Scripts.Ability
             return null;
         }
 
+        public virtual void UpdateAnimatorParameters(IAnimatorInstance animator)
+        {
+        }
+
         /** Update ability-specific animator parameters here, best used together with GetAnimControllerOverride */
         public virtual void UpdateAnimatorParameters(Animator mainAnimator)
         {
@@ -40,6 +45,10 @@ namespace Character.Scripts.Ability
 
         /** Called right after CharController::ActivateAbility */
         public virtual void OnAbilityActivated()
+        {
+        }
+
+        public virtual void OnNonActiveAbilityTick(float dt)
         {
         }
 

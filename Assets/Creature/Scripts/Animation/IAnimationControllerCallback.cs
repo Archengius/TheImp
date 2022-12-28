@@ -2,6 +2,12 @@
 
 namespace Creature.Scripts.Animation
 {
+    public class AnimControllerOverridePriority
+    {
+        public const int Normal = 0;
+        public const int ActiveAbility = 100;
+    }
+    
     public struct AnimationControllerOverride
     {
         public readonly RuntimeAnimatorController Controller;
@@ -13,7 +19,15 @@ namespace Creature.Scripts.Animation
             Priority = priority;
         }
     }
-    
+
+    public interface IAnimatorInstance
+    {
+        void SetTrigger(string name);
+        void SetBool(string name, bool value);
+        void SetInteger(string name, int value);
+        void SetFloat(string name, float value);
+    }
+
     public interface IAnimationControllerCallback
     {
         public virtual AnimationControllerOverride GetAnimationControllerOverride()
@@ -21,7 +35,7 @@ namespace Creature.Scripts.Animation
             return new AnimationControllerOverride(null);
         }
 
-        public virtual void UpdateAnimatorParameters(Animator animator)
+        public virtual void UpdateAnimatorParameters(IAnimatorInstance animator)
         {
         }
 

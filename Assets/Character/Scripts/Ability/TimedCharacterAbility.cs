@@ -1,4 +1,5 @@
 ﻿using Character.Scripts.Health;
+using Creature.Scripts.Animation;
 using UnityEngine;
 
 namespace Character.Scripts.Ability
@@ -21,6 +22,8 @@ namespace Character.Scripts.Ability
         [SerializeField] protected float minVelocityToEnter = 0.0f;
         [SerializeField] protected float maxVelocityToEnter = 0.0f;
         
+        [SerializeField] protected RuntimeAnimatorController abilityAnimController;
+        
         protected CharacterMovementComponent MovementComponent;
         protected CharacterHealthComponent HealthComponent;
 
@@ -41,13 +44,25 @@ namespace Character.Scripts.Ability
         public bool IsAbilityEnter => IsAbilityActive && AbilityActivationTimeFull < AbilityEnterTime;
         public bool IsAbilityExit => IsAbilityActive && AbilityActivationTimeFull > (MaxAbilityActivationTimeFull - (AbilityEnterTime + AbilityExitTime));
         public bool IsAbilityRunning => IsAbilityActive && !IsAbilityEnter && !IsAbilityExit;
-        
+
+        public float AbilityEnterProgress => Mathf.Clamp01(AbilityActivationTimeFull / AbilityEnterTime);
+        public float AbilityExitProgress => Mathf.Clamp01((AbilityActivationTimeFull - (MaxAbilityActivationTimeFull - (AbilityEnterTime + AbilityExitTime))) / AbilityExitTime);
+
         protected virtual void Start()
         {
             MovementComponent = GetComponent<CharacterMovementComponent>();
             HealthComponent = GetComponent<CharacterHealthComponent>();
         }
-        
+
+        public override void OnNonActiveAbilityTick(float dt)
+        {
+            base.OnNonActiveAbilityTick(dt);
+            if (_abilityCooldownTimer > 0.0f)
+            {
+                _abilityCooldownTimer -= Mathf.Min(_abilityCooldownTimer, dt);
+            }
+        }
+
         public override void OnAbilityActivated()
         {
             base.OnAbilityActivated();
@@ -123,6 +138,10 @@ namespace Character.Scripts.Ability
 
         protected virtual void OnAbilityExitTick(float dt)
         {
+            if (AbilityExitTime >= abilityExitTime)
+            {
+                StopAbility(true);
+            }
         }
         
         public override void OnAbilityStopped()
@@ -196,6 +215,27 @@ namespace Character.Scripts.Ability
 
         protected virtual void OnAbilityExitStart()
         {
+        }
+
+        public override RuntimeAnimatorController GetAnimControllerOverride()
+        {
+            return abilityAnimController;
+        }
+
+        public override void UpdateAnimatorParameters(IAnimatorInstance animator)
+        {
+            var abilityState = -1;
+            if (IsAbilityEnter)
+            {
+                abilityState = 0;
+            } else if (IsAbilityRunning)
+            {
+                abilityState = 1;
+            } else if (IsAbilityExit)
+            {
+                abilityState = 2;
+            }
+            animator.SetInteger("abilityState", abilityState);
         }
     }
 }

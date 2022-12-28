@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Creature.Scripts.Animation;
 using UnityEngine;
 
 namespace Character.Scripts.Ability
 {
-    public class CharacterAbilityManager : MonoBehaviour
+    public class CharacterAbilityManager : MonoBehaviour, IAnimationControllerCallback
     {
         private readonly List<CharacterAbility> _abilities = new();
         private CharacterAbility _activeAbility;
@@ -24,6 +25,14 @@ namespace Character.Scripts.Ability
             if (!ReferenceEquals(_activeAbility, null))
             {
                 _activeAbility.OnAbilityTick(Time.deltaTime);
+            }
+
+            foreach (var ability in _abilities)
+            {
+                if (ability != _activeAbility)
+                {
+                    ability.OnNonActiveAbilityTick(Time.deltaTime);
+                }
             }
         }
         
@@ -64,6 +73,28 @@ namespace Character.Scripts.Ability
             {
                 _activeAbility.OnAbilityStopped();
                 _activeAbility = null;
+            }
+        }
+
+        public AnimationControllerOverride GetAnimationControllerOverride()
+        {
+            if (_activeAbility)
+            {
+                var controllerOverride = _activeAbility.GetAnimControllerOverride();
+                if (controllerOverride)
+                {
+                    return new AnimationControllerOverride(controllerOverride,
+                        AnimControllerOverridePriority.ActiveAbility);
+                }
+            }
+            return new AnimationControllerOverride(null);
+        }
+
+        public void UpdateAnimatorParameters(IAnimatorInstance animator)
+        {
+            if (_activeAbility)
+            {
+                _activeAbility.UpdateAnimatorParameters(animator);
             }
         }
     }

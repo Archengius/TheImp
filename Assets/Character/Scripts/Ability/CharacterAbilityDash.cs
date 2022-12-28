@@ -10,12 +10,6 @@ namespace Character.Scripts.Ability
     [RequireComponent(typeof(CharacterInputManager))]
     public class CharacterAbilityDash : TimedCharacterAbility, IHealthComponentCallback, ICreatureMovementCallback
     {
-        private static readonly CreatureAttributeModifier GravityModifier = new(
-            Guid.Parse("7691fa98-24fa-4893-be66-a9add71ac05f"), 
-            "Dash Gravity Override",  
-            (int) AttributeModifierPriority.ActiveAbility,
-            AttributeModifierOperation.MultiplyTotal, 0.0f);
-        
         [SerializeField] protected float dashVelocity = 500.0f;
 
         private CharacterInputManager _inputManager;
@@ -40,16 +34,40 @@ namespace Character.Scripts.Ability
                 initialVelocityX = MovementComponent.Velocity.x;
                 MovementComponent.SetVelocity(new Vector2(initialVelocityX, 0.0f));
                 MovementComponent.SetInputAcceleration(Vector2.zero);
-                MovementComponent.GravityInstance.AddModifier(GravityModifier);
             }
         }
 
-        public void OnPhysicsTick(PhysicsTickContext context)
+        protected Vector2 GetDesiredVelocity()
         {
+            var gravity = MovementComponent.GravityInstance.Value;
+            var enterCharacterVelocity = new Vector2(initialVelocityX, gravity);
+            var dashVelocityVector = new Vector2(Mathf.Sign(initialVelocityX) * dashVelocity, 0.0f);
+            var exitCharacterVelocity = new Vector2(Mathf.Sign(initialVelocityX) * MovementComponent.MovementSpeedInstance.Value, gravity);
+            
+            if (IsAbilityEnter)
+            {
+                //translate from enterCharacterVelocity to dashVelocityVector
+                return Vector2.Lerp(enterCharacterVelocity, dashVelocityVector, AbilityEnterProgress);
+            }
+            else if (IsAbilityRunning)
+            {
+                //We're in full dash velocity now
+                return dashVelocityVector;
+            }
+            else if (IsAbilityExit)
+            {
+                //translate from dashVelocity to exitCharacterVelocity
+                return Vector2.Lerp(dashVelocityVector, exitCharacterVelocity, AbilityExitProgress);
+            }
+            return Vector2.zero;
+        }
+
+        public void OnPostPhysicsTick(PhysicsTickContext context)
+        {
+            Vector2 desiredVelocity = GetDesiredVelocity();
             if (IsAbilityActive)
             {
-                Vector2 dashVelocityVector = new Vector2(Mathf.Sign(initialVelocityX) * dashVelocity, 0.0f);
-                context.AddDesiredVelocity(dashVelocityVector);
+                context.SetVelocity(desiredVelocity);
             }
         }
 
@@ -63,11 +81,11 @@ namespace Character.Scripts.Ability
             }     
             if (MovementComponent != null)
             {
-                var exitCharacterVelocity = Mathf.Sign(initialVelocityX) * MovementComponent.MovementSpeedInstance.Value;
-                
-                MovementComponent.SetVelocity(new Vector2(exitCharacterVelocity, 0.0f));
+                var gravity = MovementComponent.GravityInstance.Value;
+                var exitCharacterVelocity = new Vector2(Mathf.Sign(initialVelocityX) * MovementComponent.MovementSpeedInstance.Value, gravity);
+
+                MovementComponent.SetVelocity(exitCharacterVelocity);
                 MovementComponent.SetInputAcceleration(new Vector2(Mathf.Sign(initialVelocityX), 0.0f));
-                MovementComponent.GravityInstance.RemoveModifier(GravityModifier);
             }
         }
 

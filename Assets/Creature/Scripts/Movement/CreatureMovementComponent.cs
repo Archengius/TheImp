@@ -28,6 +28,12 @@ namespace Creature.Scripts.Movement
         {
             DesiredVelocity += velocity;
         }
+
+        public void SetVelocity(Vector2 velocity)
+        {
+            DesiredVelocity = velocity;
+            MovementComponent.SetVelocity(velocity);
+        }
         
         public void AddMinimumDesiredVelocity(Vector2 minimumVelocity)
         {
@@ -263,6 +269,7 @@ namespace Creature.Scripts.Movement
             TickPhysicsInput(context);
             TickPhysicsGravity(context);
             _callbacks.ForEach(x => x.OnPhysicsTick(context));
+            _callbacks.ForEach(x => x.OnPostPhysicsTick(context));
         }
 
         protected virtual void ApplyVelocityChange(Vector2 desiredVelocity)
@@ -306,7 +313,7 @@ namespace Creature.Scripts.Movement
             PostPhysicsTick();
         }
 
-        public void UpdateAnimatorParameters(Animator animator)
+        public void UpdateAnimatorParameters(IAnimatorInstance animator)
         {
             Vector2 velocity = Rigidbody.velocity;
             

@@ -6,8 +6,8 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleLoopRight
-  serializedVersion: 7
+  m_Name: IdleRight
+  serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -67,7 +67,6 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
-      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: -2059014565, guid: efe8b8a686aceeb4ab071089673c88f5, type: 3}
     - {fileID: 543867265, guid: efe8b8a686aceeb4ab071089673c88f5, type: 3}

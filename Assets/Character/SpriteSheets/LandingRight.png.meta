@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -20,7 +20,6 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -37,9 +36,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,11 +47,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -64,14 +63,13 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -83,12 +81,12 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -112,7 +110,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -131,9 +129,9 @@ TextureImporter:
       name: LandingRight_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -152,9 +150,9 @@ TextureImporter:
       name: LandingRight_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -173,9 +171,9 @@ TextureImporter:
       name: LandingRight_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 192
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -207,6 +205,7 @@ TextureImporter:
       LandingRight_2: -595145488
   spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

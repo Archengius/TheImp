@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 8520123658805660409}
   - component: {fileID: 8824826736166646839}
   - component: {fileID: 9123532876171857479}
+  - component: {fileID: -3283911144778624112}
+  - component: {fileID: 5114297555040665498}
   m_Layer: 0
   m_Name: CharPrefab
   m_TagString: Untagged
@@ -38,7 +40,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3198561309207623287}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,9 +157,9 @@ MonoBehaviour:
     axisNameMapping: 
     inputAcceleration: {x: 0, y: -1}
   abilityKeyMappings:
-  - keyMapping: 304
-    ability: {fileID: 0}
-    stopOnRelease: 0
+  - keyMapping: 32
+    ability: {fileID: -3283911144778624112}
+    stopOnRelease: 1
   - keyMapping: 32
     ability: {fileID: 0}
     stopOnRelease: 1
@@ -255,7 +258,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: -0.017853454, y: 0.24856222}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -266,7 +269,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.41083232, y: 0.49712443}
   m_EdgeRadius: 0
 --- !u!95 &8824826736166646839
 Animator:
@@ -301,3 +304,117 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultAnimatorController: {fileID: 9100000, guid: 00318757b7ca6544fab64b7b63ebd1fb, type: 2}
+--- !u!114 &-3283911144778624112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470695826317926587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b5c320a27d499db6e1b26d2b804fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationCooldown: 1
+  abilityEnterTime: 0.1
+  minAbilityActivationTime: 0.25
+  maxAbilityActivationTime: 0.25
+  abilityExitTime: 0.1
+  cancelOnDamage: 1
+  cancelOnMove: 0
+  minVelocityToEnter: 10
+  maxVelocityToEnter: 100
+  abilityAnimController: {fileID: 9100000, guid: bdfb76afe623ea24ca31edc056cbe34e, type: 2}
+  dashVelocity: 100
+--- !u!114 &5114297555040665498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470695826317926587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39676a78e27f46b89604541af608c0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderComponent: {fileID: 3630710056932646502}
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  damagePerAttack: 1
+  canBeBlocked: 1
+  timeBetweenAttacks: 0
+  onlyAttackPlayer: 0
+  attackEnabled: 0
+  attackSuccessTriggerName: meleeAttackSuccess
+--- !u!1 &8716418673901719383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3198561309207623287}
+  - component: {fileID: 3630710056932646502}
+  m_Layer: 0
+  m_Name: MeleeAttackZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3198561309207623287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716418673901719383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4038915119718890006}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3630710056932646502
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716418673901719383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.019398153, y: 0.2504127}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.41805494, y: 0.4991746}
+  m_EdgeRadius: 0

@@ -85,7 +85,7 @@ namespace Creature.Scripts.Attack
             _currentAttackCooldown = DoAttack() ? timeBetweenAttacks : _timeBetweenFailedAttacks;
         }
 
-        public void UpdateAnimatorParameters(Animator animator)
+        public void UpdateAnimatorParameters(IAnimatorInstance animator)
         {
             if (_pendingAttackSucessAnim)
             {
