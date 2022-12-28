@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1d3923e8d546bb949fc0edf91abf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 15
+  baseMovementSpeed: 10
   baseGravity: -50
   baseJumpCount: 1
   baseJumpVelocity: 40

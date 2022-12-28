@@ -1,0 +1,878 @@
+fileFormatVersion: 2
+guid: 577fd136fd886174faa892e24df73db2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Action_plan_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 31
+        width: 256
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -66, y: -18}
+        - {x: -66, y: -15}
+        - {x: -61, y: -16}
+        - {x: -59, y: -11}
+        - {x: -51, y: -10}
+        - {x: -49, y: -9}
+        - {x: -42, y: -7}
+        - {x: -40, y: -5}
+        - {x: -32, y: -5}
+        - {x: -30, y: -3}
+        - {x: -20, y: -3}
+        - {x: -16, y: -2}
+        - {x: -10, y: -6}
+        - {x: 5, y: -6}
+        - {x: 15, y: -3}
+        - {x: 30, y: -3}
+        - {x: 32, y: -5}
+        - {x: 40, y: -5}
+        - {x: 42, y: -7}
+        - {x: 50, y: -10}
+        - {x: 60, y: -13}
+        - {x: 62, y: -15}
+        - {x: 68, y: -20}
+        - {x: 73, y: -30}
+        - {x: 76, y: -31}
+        - {x: 77, y: -36}
+        - {x: 128, y: -36}
+        - {x: 128, y: 36}
+        - {x: -128, y: 36}
+        - {x: -128, y: -36}
+        - {x: -77, y: -36}
+        - {x: -77, y: -33}
+        - {x: -73, y: -30}
+        - {x: -71, y: -24}
+      tessellationDetail: 0.52
+      bones: []
+      spriteID: 74387210440fa674190c77607bb1a86a
+      internalID: -656700563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_1
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 31
+        width: 112
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: -32}
+        - {x: -24, y: 11}
+        - {x: 7, y: 11}
+        - {x: 7, y: -32}
+      physicsShape:
+      - - {x: -38, y: -22}
+        - {x: -34, y: -21}
+        - {x: -33, y: -19}
+        - {x: -31, y: -19}
+        - {x: -28, y: -17}
+        - {x: -23, y: -14}
+        - {x: -17, y: -13}
+        - {x: -14, y: -11}
+        - {x: -6, y: -10}
+        - {x: -5, y: -9}
+        - {x: 3, y: -9}
+        - {x: 4, y: -8}
+        - {x: 18, y: -8}
+        - {x: 19, y: -9}
+        - {x: 26, y: -9}
+        - {x: 29, y: -6}
+        - {x: 29, y: 1}
+        - {x: 30, y: 2}
+        - {x: 30, y: 4}
+        - {x: 32, y: 5}
+        - {x: 34, y: 9}
+        - {x: 39, y: 15}
+        - {x: 41, y: 15}
+        - {x: 45, y: 18}
+        - {x: 55, y: 18}
+        - {x: 56, y: 19}
+        - {x: 56, y: 30}
+        - {x: -3, y: 30}
+        - {x: -7, y: 36}
+        - {x: -56, y: 36}
+        - {x: -56, y: -36}
+        - {x: -47, y: -36}
+        - {x: -46, y: -35}
+        - {x: -46, y: -28}
+        - {x: -43, y: -26}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 36dff481d9c4a3b44b94adddf510d340
+      internalID: 2143993585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 71
+        width: 160
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -80, y: 16}
+        - {x: -80, y: -16}
+        - {x: 80, y: -16}
+        - {x: 80, y: 16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: c33da8866771b45469679bd0218f38c0
+      internalID: 1259114566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_3
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 31
+        width: 48
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 36}
+        - {x: -24, y: -36}
+        - {x: 24, y: -36}
+        - {x: 24, y: 36}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6778bb0bd7f104c449663c0fd40cb3d0
+      internalID: -1528000294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_4
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 64
+        width: 53
+        height: 39
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -23.5, y: 19.5}
+        - {x: -23.5, y: -10.5}
+        - {x: -21.5, y: -12.5}
+        - {x: -21.5, y: -15.5}
+        - {x: -26.5, y: -16.5}
+        - {x: -26.5, y: -19.5}
+        - {x: 12.5, y: -19.5}
+        - {x: 12.5, y: -14.5}
+        - {x: 26.5, y: -14.5}
+        - {x: 26.5, y: 19.5}
+      tessellationDetail: 0.7
+      bones: []
+      spriteID: 34e08ac9c9440a74d9f3b24c9102c970
+      internalID: -1820712797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_5
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 70
+        width: 64
+        height: 33
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 16.5}
+        - {x: -32, y: -9.5}
+        - {x: -27, y: -16.5}
+        - {x: 32, y: -16.5}
+        - {x: 32, y: 16.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93189a3c67d85e042ad8b8609edb966b
+      internalID: 615460792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_6
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 30
+        width: 16
+        height: 73
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 36.5}
+        - {x: -8, y: -36.5}
+        - {x: 8, y: -36.5}
+        - {x: 8, y: 36.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1d8e1b547b48e4287df49e4c3ff4f3
+      internalID: -1081787571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_7
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 31
+        width: 16
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 36}
+        - {x: -8, y: -36}
+        - {x: 8, y: -36}
+        - {x: 8, y: 36}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ae936cd377ff34283a516bd5c859b7
+      internalID: -1196015172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_8
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 71
+        width: 16
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 16}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2228ff03baa3d2e41a6d4f8ddf01be78
+      internalID: 396762673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_9
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 36
+        width: 64
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 16}
+        - {x: -32, y: -2}
+        - {x: -30, y: -7}
+        - {x: -19, y: -16}
+        - {x: 20, y: -16}
+        - {x: 32, y: -14}
+        - {x: 32, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b36ca476ecda53409cb9dc0e5b87874
+      internalID: 80833813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_10
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 36
+        width: 64
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 16}
+        - {x: -32, y: -16}
+        - {x: 32, y: -16}
+        - {x: 32, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979339a4e502ccb4e86e02b6fc9c8084
+      internalID: -745844558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_11
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 36
+        width: 16
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 16}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ad3e5f92c2531418cac7d031ce5414
+      internalID: -1084646532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_12
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 37
+        width: 48
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 12}
+        - {x: -24, y: -12}
+        - {x: 24, y: -12}
+        - {x: 24, y: 12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18861c64665806c48b639f2ca64fac53
+      internalID: -1615531391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_13
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 36
+        width: 64
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -27, y: 16}
+        - {x: -32, y: 10}
+        - {x: -32, y: -14}
+        - {x: -29, y: -16}
+        - {x: 28, y: -16}
+        - {x: 32, y: -13}
+        - {x: 32, y: 11}
+        - {x: 28, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fa684f911ab2a4dbe71f8bf9c7f39a
+      internalID: -2079007532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_14
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 36
+        width: 11
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5.5, y: 16}
+        - {x: -5.5, y: -16}
+        - {x: 5.5, y: -16}
+        - {x: 5.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae4a5ef844f74e42a58dcf2b4a74c97
+      internalID: -1733482427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 12
+        width: 64
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 8}
+        - {x: -32, y: -8}
+        - {x: 32, y: -8}
+        - {x: 32, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49058732e2d131243a96a1f81f4c93e5
+      internalID: 1371515772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_16
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 17
+        width: 32
+        height: 11
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 5.5}
+        - {x: -16, y: -5.5}
+        - {x: 16, y: -5.5}
+        - {x: 16, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3455bba400f4c4583a8dab4f158c4f
+      internalID: 1357882491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_17
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 21
+        width: 30
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -15, y: 3.5}
+        - {x: -15, y: -3.5}
+        - {x: 15, y: -3.5}
+        - {x: 15, y: 3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3544f920b312b4b4f83adf04f5443e05
+      internalID: -374924120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_18
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 9
+        width: 64
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 12}
+        - {x: -32, y: -12}
+        - {x: 32, y: -12}
+        - {x: 32, y: 12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3648e0799c1b954bbcccf001fe94f7c
+      internalID: -1608699980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_19
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 9
+        width: 64
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 12}
+        - {x: -32, y: -12}
+        - {x: 29, y: -12}
+        - {x: 32, y: -8}
+        - {x: 32, y: 12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc028b0369b54f94b94798c17d1b106c
+      internalID: -1638249007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_20
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1
+        width: 11
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5.5, y: 16}
+        - {x: -5.5, y: -16}
+        - {x: 5.5, y: -16}
+        - {x: 5.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 078a906e0181077439d5086682f1baae
+      internalID: 1689263807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_21
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 9
+        width: 64
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 12}
+        - {x: -32, y: -12}
+        - {x: 32, y: -12}
+        - {x: 32, y: 12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46edaf16a89be3b4f9a55706e7d24901
+      internalID: -161868485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_22
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 4
+        width: 32
+        height: 29
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67c1dcf181db134fbc8e85282c98c67
+      internalID: -1509829955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_23
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 17
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6882e4b5ff3c741b62dbd26fd2336e
+      internalID: 506753172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Action_plan_24
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 19
+        width: 16
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 7}
+        - {x: -8, y: -7}
+        - {x: 8, y: -7}
+        - {x: 8, y: 7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61cb3f145ba0ea84aa61bb782835e5c9
+      internalID: -1152168253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Action_plan_20: 1689263807
+      Action_plan_15: 1371515772
+      Action_plan_17: -374924120
+      Action_plan_8: 396762673
+      Action_plan_23: 506753172
+      Action_plan_4: -1820712797
+      Action_plan_3: -1528000294
+      Action_plan_0: -656700563
+      Action_plan_14: -1733482427
+      Action_plan_7: -1196015172
+      Action_plan_2: 1259114566
+      Action_plan_5: 615460792
+      Action_plan_9: 80833813
+      Action_plan_6: -1081787571
+      Action_plan_13: -2079007532
+      Action_plan_18: -1608699980
+      Action_plan_11: -1084646532
+      Action_plan_24: -1152168253
+      Action_plan_1: 2143993585
+      Action_plan_16: 1357882491
+      Action_plan_19: -1638249007
+      Action_plan_10: -745844558
+      Action_plan_12: -1615531391
+      Action_plan_22: -1509829955
+      Action_plan_21: -161868485
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
