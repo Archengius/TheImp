@@ -11,29 +11,22 @@ namespace Character.Scripts.Ability
     public class CharacterAbilityDash : TimedCharacterAbility, IHealthComponentCallback, ICreatureMovementCallback
     {
         [SerializeField] protected float dashVelocity = 500.0f;
-
-        private CharacterInputManager _inputManager;
         private float initialVelocityX = 0.0f;
-
-        protected override void Start()
-        {
-            base.Start();
-            _inputManager = GetComponent<CharacterInputManager>();
-        }
 
         public override void OnAbilityActivated()
         {
             base.OnAbilityActivated();
-           
-            if (_inputManager != null)
-            {
-                _inputManager.DisableInput();
-            }
+            
             if (MovementComponent != null)
             {
                 initialVelocityX = MovementComponent.Velocity.x;
+                if (initialVelocityX == 0.0f)
+                {
+                    initialVelocityX = MovementComponent.TurnDirection;
+                }
                 MovementComponent.SetVelocity(new Vector2(initialVelocityX, 0.0f));
                 MovementComponent.SetInputAcceleration(Vector2.zero);
+                MovementComponent.DisableInputAccelerationMovement();
             }
         }
 
@@ -74,11 +67,7 @@ namespace Character.Scripts.Ability
         public override void OnAbilityStopped()
         {
             base.OnAbilityStopped();
-           
-            if (_inputManager != null)
-            {
-                _inputManager.EnableInput();
-            }     
+            
             if (MovementComponent != null)
             {
                 var gravity = MovementComponent.GravityInstance.Value;
@@ -86,6 +75,7 @@ namespace Character.Scripts.Ability
 
                 MovementComponent.SetVelocity(exitCharacterVelocity);
                 MovementComponent.SetInputAcceleration(new Vector2(Mathf.Sign(initialVelocityX), 0.0f));
+                MovementComponent.EnableInputAccelerationMovement();
             }
         }
 

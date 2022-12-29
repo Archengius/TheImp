@@ -71,8 +71,11 @@ namespace Character.Scripts.Ability
         {
             if (!ReferenceEquals(GetActiveAbility(), null))
             {
-                _activeAbility.OnAbilityStopped();
-                _activeAbility = null;
+                if (force || _activeAbility.RequestAbilityStop())
+                {
+                    _activeAbility.OnAbilityStopped();
+                    _activeAbility = null;
+                }
             }
         }
 

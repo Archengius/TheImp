@@ -44,6 +44,7 @@ namespace Character.Scripts.Ability
         public bool IsAbilityEnter => IsAbilityActive && AbilityActivationTimeFull < AbilityEnterTime;
         public bool IsAbilityExit => IsAbilityActive && AbilityActivationTimeFull > (MaxAbilityActivationTimeFull - (AbilityEnterTime + AbilityExitTime));
         public bool IsAbilityRunning => IsAbilityActive && !IsAbilityEnter && !IsAbilityExit;
+        public bool RequestedAbilityStop => _requestedAbilityStop;
 
         public float AbilityEnterProgress => Mathf.Clamp01(AbilityActivationTimeFull / AbilityEnterTime);
         public float AbilityExitProgress => Mathf.Clamp01((AbilityActivationTimeFull - (MaxAbilityActivationTimeFull - (AbilityEnterTime + AbilityExitTime))) / AbilityExitTime);
@@ -153,7 +154,7 @@ namespace Character.Scripts.Ability
             _requestedAbilityStop = false;
         }
 
-        protected void SetTimeToAbilityExit()
+        public void SetTimeToAbilityExit()
         {
             _abilityActivationTime = _maxAbilityActivationTime - abilityExitTime;
         }

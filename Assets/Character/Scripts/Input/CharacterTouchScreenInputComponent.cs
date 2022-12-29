@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Character.Scripts.Input {
 public class CharacterTouchScreenInputComponent : CharacterInputComponent {
-    /** Key mappings for input */
+  
     [SerializeField] [InspectorName("Joystick")]
     private JoystickComponent joystick;
 
@@ -21,6 +21,30 @@ public class CharacterTouchScreenInputComponent : CharacterInputComponent {
     [SerializeField] [InspectorName("Attack Ability")]
     private CharacterAbility attackAbility;
 
+    [SerializeField] private bool editorPriority = false;
+
+    public override void OnInputComponentStateChanged(bool newEnabled)
+    {
+        if (joystick)
+        {
+            joystick.enabled = newEnabled;
+        }
+
+        if (jumpButton)
+        {
+            jumpButton.enabled = newEnabled;
+        }
+
+        if (dashButton)
+        {
+            dashButton.enabled = newEnabled;
+        }
+
+        if (attackButton)
+        {
+            attackButton.enabled = newEnabled;
+        }
+    }
 
     public override void ProcessInput() {
         if (MovementComponent != null) {
@@ -46,7 +70,7 @@ public class CharacterTouchScreenInputComponent : CharacterInputComponent {
     }
 
     public override int GetInputComponentPriority() {
-        if (Application.isEditor) {
+        if (Application.isEditor && editorPriority) {
             return 110;
         }
 

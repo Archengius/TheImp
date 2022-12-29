@@ -16,10 +16,6 @@ public class HealthUiComponent : MonoBehaviour, IHealthComponentCallback {
     private int lastHealth;
     private void Update() {
         if (lastHealth != healthComponent.Health) {
-            if (healthComponent.Health <= 0) {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-            
             foreach (Transform child in transform) {
                 Destroy(child.gameObject);
             }

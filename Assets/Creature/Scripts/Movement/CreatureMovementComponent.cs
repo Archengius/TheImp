@@ -89,6 +89,7 @@ namespace Creature.Scripts.Movement
         private Vector2 _inputAcceleration = new Vector2(0.0f, 0.0f);
         private float _inputAccelerationThreshold = 0.01f;
         private float _jumpInputThreshold = 0.5f;
+        private int _inputAccelerationStack = 0;
 
         private int _currentJumpCounter = 0;
         private float _jumpRemainingCooldown = 0.0f;
@@ -139,6 +140,16 @@ namespace Creature.Scripts.Movement
         public void SetInputAcceleration(Vector2 input)
         {
             _inputAcceleration = input;
+        }
+
+        public void DisableInputAccelerationMovement()
+        {
+            _inputAccelerationStack++;
+        }
+
+        public void EnableInputAccelerationMovement()
+        {
+            _inputAccelerationStack--;
         }
 
         protected bool CanMovementComponentUpdate()
@@ -197,21 +208,26 @@ namespace Creature.Scripts.Movement
                     _jumpRemainingCooldown -= Math.Min(_jumpRemainingCooldown, Time.deltaTime);
                 }
             }
-            if (Mathf.Abs(_inputAcceleration.x) >= _inputAccelerationThreshold)
-            {
-                float forwardForceInput = _movementSpeedInstance.Value * _inputAcceleration.x;
-                if (!IsOnGround)
-                {
-                    forwardForceInput *= airborneMovementSpeedMultiplier;
-                }
-                context.AddDesiredVelocity(new Vector2(forwardForceInput, 0.0f));
-            }
 
-            if (Mathf.Abs(_inputAcceleration.y) >= _inputAccelerationThreshold)
+            if (_inputAccelerationStack == 0)
             {
-                if (_inputAcceleration.y >= _jumpInputThreshold)
+                if (Mathf.Abs(_inputAcceleration.x) >= _inputAccelerationThreshold)
                 {
-                    DoJump(context);
+                    float forwardForceInput = _movementSpeedInstance.Value * _inputAcceleration.x;
+                    if (!IsOnGround)
+                    {
+                        forwardForceInput *= airborneMovementSpeedMultiplier;
+                    }
+
+                    context.AddDesiredVelocity(new Vector2(forwardForceInput, 0.0f));
+                }
+
+                if (Mathf.Abs(_inputAcceleration.y) >= _inputAccelerationThreshold)
+                {
+                    if (_inputAcceleration.y >= _jumpInputThreshold)
+                    {
+                        DoJump(context);
+                    }
                 }
             }
         }

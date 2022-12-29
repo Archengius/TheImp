@@ -1,5 +1,7 @@
-﻿using Character.Scripts.Ability;
+﻿using System;
+using Character.Scripts.Ability;
 using Character.Scripts.Input;
+using Creature.Scripts.Attributes;
 using Creature.Scripts.Health;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +18,7 @@ namespace Character.Scripts.Health
 
         private CharacterInputManager _characterInputManager;
         private CharacterAbilityManager _characterAbilityManager;
+        private CharacterMovementComponent _characterMovementComponent;
         
         private float _currentInvulnerabilityTime = 0.0f;
         private float _currentDeathTime = 0.0f;
@@ -27,6 +30,7 @@ namespace Character.Scripts.Health
             base.Start();
             _characterInputManager = GetComponent<CharacterInputManager>();
             _characterAbilityManager = GetComponent<CharacterAbilityManager>();
+            _characterMovementComponent = GetComponent<CharacterMovementComponent>();
         }
 
         protected override void Update()
@@ -61,6 +65,12 @@ namespace Character.Scripts.Health
             if (_characterInputManager != null)
             {
                 _characterInputManager.DisableInput();
+            }
+
+            if (_characterMovementComponent)
+            {
+                _characterMovementComponent.SetInputAcceleration(Vector2.zero);
+                _characterMovementComponent.SetVelocity(Vector2.zero);
             }
             if (_characterAbilityManager != null)
             {

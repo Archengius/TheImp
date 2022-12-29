@@ -6,6 +6,7 @@ namespace Creature.Scripts.Animation
     {
         public const int Normal = 0;
         public const int ActiveAbility = 100;
+        public const int DeathAnimation = 1000;
     }
     
     public struct AnimationControllerOverride

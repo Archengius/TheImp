@@ -32,6 +32,10 @@ namespace Character.Scripts.Input
         /** Return true if this input component can be used in the current configuration */
         public abstract bool CanUseInputComponent();
 
+        public virtual void OnInputComponentStateChanged(bool newEnabled)
+        {
+        }
+
         /** Called to process input from this movement component */
         public abstract void ProcessInput();
     }

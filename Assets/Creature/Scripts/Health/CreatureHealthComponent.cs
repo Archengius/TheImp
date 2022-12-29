@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Creature.Scripts.Animation;
 using Creature.Scripts.Attributes;
 using Creature.Scripts.Movement;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine;
 namespace Creature.Scripts.Health
 {
     [RequireComponent(typeof(CreatureAttributeManager))]
-    public class CreatureHealthComponent : DamageReceiverComponent
+    public class CreatureHealthComponent : DamageReceiverComponent, IAnimationControllerCallback
     {
         public static readonly CreatureAttribute MaxHealthAttribute = new("health.max_health", 6.0f);
         
@@ -18,6 +19,7 @@ namespace Creature.Scripts.Health
 
         [SerializeField] private int baseMaxHealth = 6;
         [SerializeField] private float baseKnockBackStrength = 0.0f;
+        [SerializeField] private RuntimeAnimatorController deathAnimationController;
 
         private int _currentHealth;
         private bool _hasRanOutOfHealth;
@@ -26,7 +28,22 @@ namespace Creature.Scripts.Health
         public int MaxHealth => (int)_maxHealthInstance.Value;
         public int Health => _currentHealth;
         public bool RanOutOfHealth => _hasRanOutOfHealth;
-        public List<IHealthComponentCallback> Callbacks => _callbacks.ToList();
+
+        public AnimationControllerOverride GetAnimationControllerOverride()
+        {
+            if (RanOutOfHealth && deathAnimationController)
+            {
+                return new AnimationControllerOverride(deathAnimationController,
+                    AnimControllerOverridePriority.DeathAnimation);
+            }
+
+            return new AnimationControllerOverride(null);
+        }
+
+        public void UpdateAnimatorParameters(IAnimatorInstance animator)
+        {
+            animator.SetFloat("healthPct", Health / Math.Max(0.1f, MaxHealth));
+        }
 
         protected virtual void Start()
         {

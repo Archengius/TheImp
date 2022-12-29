@@ -22,6 +22,11 @@ namespace Creature.Scripts.Health
         {
             var gameObject = source.gameObject;
             return new DamageSource("melee", gameObject, gameObject, canBeBlocked);
-        } 
+        }
+
+        public static DamageSource CauseEnvironmentDamage(bool canBeBlocked = false)
+        {
+            return new DamageSource("environment", null, null, canBeBlocked);
+        }
     }
 }

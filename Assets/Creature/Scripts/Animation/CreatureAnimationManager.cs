@@ -130,5 +130,12 @@ namespace Creature.Scripts.Animation
             }
             UpdateAnimatorParams();
         }
+
+        public void TriggerAnimNotify(AnimationEvent animationEvent)
+        {
+            var notifyName = animationEvent.stringParameter;
+            var customData = animationEvent.intParameter;
+            _callbacks.ForEach(x => x.OnAnimNotifyTriggered(notifyName, customData));
+        }
     }
 }

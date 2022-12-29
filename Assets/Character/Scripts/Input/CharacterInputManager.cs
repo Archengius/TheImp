@@ -56,7 +56,18 @@ namespace Character.Scripts.Input
 
         public void ForceActivateInputComponent(CharacterInputComponent inputComponent)
         {
-            _activeInputComponent = inputComponent;
+            if (_activeInputComponent != inputComponent)
+            {
+                if (_activeInputComponent)
+                {
+                    _activeInputComponent.OnInputComponentStateChanged(false);
+                }
+                _activeInputComponent = inputComponent;
+                if (inputComponent)
+                {
+                    inputComponent.OnInputComponentStateChanged(true);
+                }
+            }
         }
     }
 }
