@@ -40,6 +40,11 @@ namespace Character.Scripts.Health
             {
                 TickRanOutOfHealth(Time.deltaTime);
             }
+
+            if (_currentInvulnerabilityTime > 0.0f)
+            {
+                _currentInvulnerabilityTime -= Mathf.Min(_currentInvulnerabilityTime, Time.deltaTime);
+            }
         }
 
         private void TickRanOutOfHealth(float dt)

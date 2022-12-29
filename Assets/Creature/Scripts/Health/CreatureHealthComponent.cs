@@ -5,6 +5,7 @@ using Creature.Scripts.Animation;
 using Creature.Scripts.Attributes;
 using Creature.Scripts.Movement;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Creature.Scripts.Health
 {
@@ -20,6 +21,7 @@ namespace Creature.Scripts.Health
         [SerializeField] private int baseMaxHealth = 6;
         [SerializeField] private float baseKnockBackStrength = 0.0f;
         [SerializeField] private RuntimeAnimatorController deathAnimationController;
+        [SerializeField] private UnityEvent onRanOutOfHealth = new();
 
         private int _currentHealth;
         private bool _hasRanOutOfHealth;
@@ -170,6 +172,7 @@ namespace Creature.Scripts.Health
         protected virtual void OnRanOutOfHealth()
         {
             _callbacks.ForEach(x => x.OnRanOutOfHealth());
+            onRanOutOfHealth.Invoke();
         }
     }
 }

@@ -83,7 +83,7 @@ namespace Creature.Scripts.Movement
         private CreatureAttributeInstance _jumpVelocityInstance;
 
         private int _turnDirection;
-        private int defaultTurnDirection = 1;
+        [SerializeField] private int defaultTurnDirection = 1;
         private float turnDirectionVelocityThreshold = 0.1f;
 
         private Vector2 _inputAcceleration = new Vector2(0.0f, 0.0f);

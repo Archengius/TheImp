@@ -74,4 +74,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.083333336
+    functionName: TriggerAnimNotify
+    data: characterAttackMelee
+    objectReferenceParameter: {fileID: 11500000, guid: 75ea84f35bff4f9bb2a2c6f459f5031b, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
